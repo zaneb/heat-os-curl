@@ -3,11 +3,12 @@
 . auth.sh
 
 ACCEPT_JSON="Accept: application/json"
+TYPE_JSON="Content-type: application/json"
 
 PORT=$1
 URL_PATH=$2
 DATA_FILE=$3
 
-curl -L --post302 -X PUT -H "${ACCEPT_JSON}" -H "$(auth_token)" -d @${DATA_FILE:?} http://localhost:${PORT:?}${URL_PATH:-/}
+curl -L --post302 -X PUT -H "${ACCEPT_JSON}" -H "$(auth_token)" -H "${TYPE_JSON}" -d @${DATA_FILE:?} http://localhost:${PORT:?}${URL_PATH:-/}
 
 echo
