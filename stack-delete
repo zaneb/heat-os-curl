@@ -1,0 +1,5 @@
+#!/bin/bash
+
+. config.sh
+
+$(dirname $0)/delete $PORT $ENDPOINT/$TENANT/stacks/test_stack

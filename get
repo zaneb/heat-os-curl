@@ -1,0 +1,13 @@
+#!/bin/bash
+
+. auth.sh
+
+ACCEPT_JSON="Accept: application/json"
+
+PORT=$1
+URL_PATH=$2
+
+curl -L -H "${ACCEPT_JSON}" -H "$(auth_token)" http://localhost:${PORT:?}${URL_PATH:-/}
+#curl -H "$(username)" -H "$(password)" http://localhost:${PORT:?}${URL_PATH:-/}
+
+echo

@@ -1,0 +1,5 @@
+#!/bin/bash
+
+. config.sh
+
+$(dirname $0)/post $PORT $ENDPOINT/$TENANT/validate create_request
