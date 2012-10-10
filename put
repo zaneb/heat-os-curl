@@ -9,6 +9,6 @@ PORT=$1
 URL_PATH=$2
 DATA_FILE=$3
 
-curl -L --post302 -X PUT -H "${ACCEPT_JSON}" -H "$(auth_token)" -H "${TYPE_JSON}" -d @${DATA_FILE:?} http://localhost:${PORT:?}${URL_PATH:-/}
+curl -i -L --post302 -X PUT -H "${ACCEPT_JSON}" -H "$(auth_token)" -H "${TYPE_JSON}" -d @${DATA_FILE:?} http://localhost:${PORT:?}${URL_PATH:-/}
 
 echo
