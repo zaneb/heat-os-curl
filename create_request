@@ -151,5 +151,6 @@
         "DBUsername": "dbuser",
         "DBPassword": "verybadpass",
         "KeyName": "zbitter_key"
-    }
+    },
+    "timeout_mins": 5
 }
