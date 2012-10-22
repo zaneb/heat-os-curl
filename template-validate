@@ -2,4 +2,6 @@
 
 . config.sh
 
-$(dirname $0)/post $PORT $ENDPOINT/$TENANT/validate create_request
+REQUEST=$1
+
+$(dirname $0)/post $PORT $ENDPOINT/$TENANT/validate ${REQUEST:-create_request}
