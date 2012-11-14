@@ -1,0 +1,10 @@
+#!/bin/bash
+
+. config.sh
+
+STACK=$1
+RESOURCE=$2
+
+STACK_PATH=`$(dirname $0)/stack-path-lookup $STACK`
+
+$(dirname $0)/get $PORT $STACK_PATH/resources/${RESOURCE:-WikiDatabase}

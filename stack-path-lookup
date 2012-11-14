@@ -1,0 +1,19 @@
+#!/bin/bash
+
+. config.sh
+
+STACK=$1
+
+lookup() {
+    $(dirname $0)/get $PORT $* --max-redirs 0 2>/dev/null
+}
+
+get_location() {
+    $* | tr '\r' '\n' | grep '^Location:'
+}
+
+extract_path() {
+    $* | sed "s#^[^:]*: http://[^:]*:$PORT##"
+}
+
+extract_path get_location lookup $ENDPOINT/$TENANT/stacks/${STACK:-test_stack}
